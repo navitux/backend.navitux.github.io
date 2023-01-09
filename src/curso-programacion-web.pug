@@ -2,9 +2,21 @@
 tags: "posts"
 title: "Curso Programación Web"
 date: "Last Modified"
+description: "Online Full Front-End Programming Course in Spanish made by me on Youtube"
+imgtag: "tech"
 ---
 extends ./_includes/base.pug
 block content
- h1(class="text-left") #{title}
- p(class="text-left ").
-  As part of social job and collaboration with esposible.org organization hosted by Simon Levy, I had teach a course fully in Spanish of around 14 hours along several weeks and I had uploaded all on Youtube, I hope you enjoy the content, I will update the courses soon, here are the links for Youtube reproduction list and the material in PDF format: 
+ article.text-left
+  h1(class="text-[3em]") #{title}
+  small(class="text-sm") #{date}
+  br
+  br
+  p.
+   As part of social job and collaboration with esposible.org organization hosted by Simon Levy, I had teach a course fully in Spanish of around 14 hours along several weeks and I had uploaded all on Youtube, I hope you enjoy the content, I will update the courses soon, here are the links for Youtube reproduction list and the material in PDF format: 
+  a.link(href="https://drive.google.com/drive/folders/1GuGtOqLZ32I2QpyMXtDPlabqCJVTCRgh?usp=sharing") Complete 9 parts material in PDF Spanish
+  br
+  a.link(href="https://youtube.com/playlist?list=PLrNjNrrDusy6aYiwmjBqZP19x4LSgGFpq") Link to Videos Lists on Youtube
+  br
+  p First Video (Audio in Spanish)
+  <iframe class="rounded-xl scale-200" src="https://www.youtube.com/embed/aORgFHU1y4s?list=PLrNjNrrDusy6aYiwmjBqZP19x4LSgGFpq" title="Curso de Programación Web Front-End - Introducción 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

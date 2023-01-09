@@ -5,10 +5,10 @@ mixin masto_ico
 
 block content
  h1(class="text-[5em] text-center justify-self-center") #{title}
- h1(id="title" class="text-[5em] text-center justify-self-center") Hi I'm Ivan and this is my site
+ h1(id="title" class="text-[5em] text-center justify-self-center") Ivans Site
   
  // presentation card
- div(class="block rounded-2xl content-center text-center p-[5%] m-auto bg-[#0000001E] dark:bg-[#FFFFFF1E] w-[400px]")
+ div#about(class="block rounded-2xl content-center text-center p-[5%] m-auto bg-[#0000001E] dark:bg-[#FFFFFF1E] w-[400px]")
   div.avatar
    div.w-40.rounded-full
     img.content-center(src="https://i.imgur.com/mTZStuk.jpg")
@@ -29,10 +29,17 @@ block content
    li test engineer
    li math &#38; data science enthusiast 
   
- p(class="text-[2em]")#posts my posts are here:
-
- -const posts = collections.posts;
- ul(class="text-[1em] list-disc")
-  for post in posts
-   li
-    a(href=post.url) #{post.data.title}
+ div#posts(class="text-left  bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-2xl p-[2%] mt-[5%]")
+  p(class="text-[2em]") my posts are here:
+  -const posts = collections.posts;
+  ul
+   for post,i in posts
+    li
+     div(class="card w-96 bg-base-100 shadow-xl hover:scale-110 active:scale-110 ease-in duration-100")
+      a(href=post.url)
+       figure
+         img(class="rounded-t-2xl" src="https://placeimg.com/400/255/"+post.data.imgtag+"?random="+i alt="Shoes")
+      div(class="card-body")
+        h2(class="card-title")
+          a(href=post.url) #{post.data.title}
+        p #{post.data.description}
