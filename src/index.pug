@@ -56,8 +56,9 @@ html
   p my posts are here:
   -const posts = collections.posts;
   ul(class="text-[2em] list-disc")
-    each p in posts
-      li= p.data.title
+    for post in posts
+      li
+        a(href=post.url) #{post.data.title}
   
  footer.footer.footer-center
   p Ivan Robles - CC BY 4.0
