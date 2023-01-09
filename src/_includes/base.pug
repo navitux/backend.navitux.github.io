@@ -1,0 +1,32 @@
+doctype html
+html 
+ head
+  meta(charset="UTF-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  link(href="https://cdn.jsdelivr.net/npm/daisyui@2.46.1/dist/full.css" rel="stylesheet" type="text/css")
+  script(src="https://cdn.tailwindcss.com")
+  // Alpine Core
+  script(src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer)
+  // animate.css
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css")
+  // locomotive js effects
+  script(src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js")
+  title Ivans Site
+ 
+ body
+  // navbar
+  header(class="navbar bg-base-100 justify-center text-center border border-2 border-dashed rounded-lg" x-on:resize.window="isMobile = (window.innerWidth < 641) ? true : false" x-data="{isMobile: (window.innerWidth < 641) ? true : false}")
+   a.btn.btn-ghost.normal-case.text-xl.navbar-center(href="/") Home
+   a.btn.btn-ghost.normal-case.text-xl.navbar-center(x-show="! isMobile") projects
+   a.btn.btn-ghost.normal-case.text-xl.navbar-center(x-show="! isMobile") blog
+ 
+  // main content
+  main(class="container mx-auto my-[1%] w-full justify-center content-center text-center items-center ")
+   // contents
+   block content
+  
+  footer.footer.footer-center.bg-base-200.text-base-content
+   p Ivan Robles - CC BY 4.0
+   a(target="_blank" href="https://icons8.com/icon/52539/github") GitHub icon by Icons8
+  
