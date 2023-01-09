@@ -2,7 +2,8 @@
   "scripts": {
       "serve": "rm -rf dist/; npx @11ty/eleventy --serve",
       "test": "npx @11ty/eleventy --dryrun",
-      "build": "rm -rf dist/; npx @11ty/eleventy;"
+      "build": "rm -rf dist/; npx @11ty/eleventy;",
+      "github":"npx @11ty/eleventy --input=src/ --output=../navitux.github.io/"
     },
   "dependencies": {
     "eleventy": "^1.0.6"
