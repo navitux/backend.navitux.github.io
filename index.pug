@@ -1,0 +1,74 @@
+//-mastodon icon in base64
+mixin masto_ico
+  img(class="inline" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADk0lEQVR4nO1ZW4hNURjerg88kFxKePCAXHN5o3gwM/tf+xgyjcvEiwi5a9wTcnlRFC+EpEjGZc75/2OQMCJJ8uSSW6FckkuE3D/94xgzx957Zvbe55xR56tV5+z17/V/37r8a61/W1YeeeSRx3+JilK04hj6iYMpQtjEBgeYcFYMbjHhoRBeMOFNnaLP7ohBtRgcEsJWNph+kjDowmi0zhrxBGGkGOwRwisxQBSFDV4LYS/bGJUx4hWlaMuE3VGR9iyEXdeHo02k5NetQ0shHMk4eZMaEcJh9RmZACYszRZ5+TsSiyIhnxiHbkL4lAMBH6tsdAktQAgbfZx8YcKOOGHEmQK0rxyPjglCARNOudhXJR2MPTsWHdRW32GDndqGT/vrwwswuO8ROd55RQ1YaMEGW+rYbvZqn22M0rY8fNwNRZ5j6OWz0Mr83lURYnCOCef1t59t0mCal58qGz2CCyBM8OiZB+mkKgvRM2EwNV6Evn+exW30FwcDa/8Xoa/apJOCjphudG6+bIwLI2Cmh4B99exiGCaE96m6r0wocWmrROtSc/u9vmPVgRD2u46CjRmBBQhhVWMWFxscTat/7CLgUVo7x9J8bXDzlXSwIoyAtR4jsLKencHNdBsNv3/qjxegq8saut2YzmKDNYEFKFGPRsvr2RHu/SPAxuBacg4Gugh4mOar3GO0l4cRUN6YXTIiAUs8OmtJYAFK1HVeGizIgICFHuF6ThgB87M1AmJjsYeAyYEFsMFsj9C2OGtTyEZhYAEagz16ZWlDAhoq/wgg9xNv0sHwwAISBpOCRqEmCzDuAeN0IToFFiAOxjQmtEUkYJmLn7dWGCSKMKCpxKIsTLgaSgDH0DmnAgwWhhJQI8LgZY4EXI4k3aJn+hyQr9bbXWjyNSNA2J7FKfNBCKsjTXQlDSb6Oib8YINvIYk/0CO6nlqtqKEXcM0Q+Ah4yzG004wdE+YJYZsYVKbSjNfE4EbqtqVH7stMSNZcXgjr9XZ2ktDHyjSYcMKn935mpOeihN5LfacAYabVnIHfGYZrPtPoqWYwrOYMcTCEDT77TKVnQpiliSu/duLF6C4Oiq1cgAllGnUaiErfNSHFhIupxVwhBiwGl2o3RcILK1cQB8UaecLGeyuXYD0j6RcWwvMA5H9q7tRqLp+Z4jaGavzXZFdq2jypzXX+3uR0bVxhg4NiY27SQe9c884jjzzysCLDL+BRoGFhqzDWAAAAAElFTkSuQmCC" alt="mastodon")
+//-post list
+mixin post_list
+    ul
+        -for (post in collections.posts)
+            li post.title
+// head
+link(href="https://cdn.jsdelivr.net/npm/daisyui@2.46.1/dist/full.css" rel="stylesheet" type="text/css")
+script(src="https://cdn.tailwindcss.com")
+// Alpine Core
+script(src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer)
+// typewriter
+script(src="https://unpkg.com/typewriter-effect@latest/dist/core.js")
+// animate.css
+link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css")
+
+// linux image from Pixabay REST API
+// img(class="h-[15px] inline" src="https://pixabay.com/get/g9ae1a3e83f8098feee59a65e8b5e34ecc480ad17361327b8ace2e1c776f24a0c2e6591a1ff843e7525996d295335fc3faa4fa5b274d1a14aca1e4c717889e1f3_640.png")
+
+// navbar
+header(class="navbar bg-base-100 justify-center text-center border border-2 border-dashed rounded-lg" x-on:resize.window="isMobile = (window.innerWidth < 641) ? true : false" x-data="{isMobile: (window.innerWidth < 641) ? true : false}")
+  a.btn.btn-ghost.normal-case.text-xl.navbar-center Home
+  a.btn.btn-ghost.normal-case.text-xl.navbar-center(x-show="! isMobile") projects
+  a.btn.btn-ghost.normal-case.text-xl.navbar-center(x-show="! isMobile") blog
+
+// main content
+main(class="container mx-auto mt-[1%]  w-full justify-center content-center text-center items-center")
+  h1(id="title" class="text-[5em] text-center justify-self-center") Hi I'm Ivan and this is my site
+  div(x-on:resize.window="isMobile = (window.innerWidth < 641) ? true : false" x-data="{isMobile: (window.innerWidth < 641) ? true : false}")
+    div(x-show="isMobile").
+      I see you're on mobile
+ 
+  // presentation card
+  div(class="block animate__animated animate__fadeInUp animate__delay-10s rounded-2xl content-center text-center p-[5%] m-auto bg-[#0000001E] dark:bg-[#FFFFFF1E] w-[400px]")
+    div.avatar
+      div.w-40.rounded-full
+        img.content-center(src="https://placeimg.com/192/192/people")
+    h3(class="text-[3em]") Ivan Robles
+    //github
+    a(href="https://github.com/navitux/")
+      img(class="inline" src="https://img.icons8.com/nolan/48/github.png" alt="github")
+    //email
+    a(href="mailto:navitux@disroot.org")
+      img(class="inline" src="https://img.icons8.com/nolan/48/1A6DFF/C822FF/email.png" alt="email")
+    //mastodon
+    a(href="https://masto.nobigtech.es/@navitux")
+      +masto_ico
+      
+    ul(class="text-[1em] list-disc")
+      li Informatics Engineer
+      li Fullstack Software Developer
+      li Linux sysadmin & fan 
+      li test engineer
+    
+  // contents
+  +post_list
+
+  img(class="w-5 rounded-full" src="https://cdn.pixabay.com/photo/2014/03/24/10/46/tux-293844_1280.png")
+  footer.footer.footer-center
+    p Ivan Robles - CC BY
+    a(target="_blank" href="https://icons8.com/icon/52539/github") GitHub icon by Icons8
+    
+script.
+  const tt = document.getElementById("title")
+  const typewriter = new Typewriter(tt, {
+  loop: false,
+  delay: 250,
+  });
+  typewriter
+  .typeString("Welcome to my site")
+  .start();
+  
