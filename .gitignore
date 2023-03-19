@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
 dist
-external_links
+external_links.txt
 yarn.lock
 .parcel-cache
