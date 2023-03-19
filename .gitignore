@@ -2,3 +2,5 @@
 node_modules
 dist
 external_links
+yarn.lock
+.parcel-cache

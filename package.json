@@ -1,11 +1,10 @@
 {
   "scripts": {
-      "serve": "rm -rf dist/; npx @11ty/eleventy --serve",
-      "test": "npx @11ty/eleventy --dryrun",
-      "build": "rm -rf dist/; npx @11ty/eleventy;",
-      "github":"npx @11ty/eleventy --input=src/ --output=../navitux.github.io/"
-    },
+    "start": "rm -rf dist/; parcel src/index.html",
+    "build": "rm -rf dist/; parcel build src/index.html",
+    "github": "parcel build src/index.html --dist-dir ../navitux.github.io/"
+  },
   "dependencies": {
-    "eleventy": "^1.0.6"
+    "parcel": "^2.8.3"
   }
 }
